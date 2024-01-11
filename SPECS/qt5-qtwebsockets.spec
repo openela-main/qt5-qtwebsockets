@@ -4,8 +4,8 @@
 
 Summary: Qt5 - WebSockets component
 Name:    qt5-%{qt_module}
-Version: 5.15.3
-Release: 1%{?dist}
+Version: 5.15.9
+Release: 2%{?dist}
 
 # See LICENSE.GPL LICENSE.LGPL LGPL_EXCEPTION.txt, for details
 License: LGPLv2 with exceptions or GPLv3 with exceptions
@@ -90,6 +90,7 @@ popd
 %files
 %license LICENSE.*
 %{_qt5_libdir}/libQt5WebSockets.so.5*
+%{_qt5_libdir}/qt5/qml/QtWebSockets/
 %{_qt5_archdatadir}/qml/Qt/WebSockets/
 
 %files devel
@@ -99,7 +100,6 @@ popd
 %dir %{_qt5_libdir}/cmake/Qt5WebSockets/
 %{_qt5_libdir}/cmake/Qt5WebSockets/Qt5WebSocketsConfig*.cmake
 %{_qt5_libdir}/pkgconfig/Qt5WebSockets.pc
-%{_qt5_libdir}/qt5/qml/QtWebSockets/
 %{_qt5_archdatadir}/mkspecs/modules/qt_lib_websockets*.pri
 
 %if 0%{?_qt5_examplesdir:1}
@@ -114,6 +114,14 @@ popd
 
 
 %changelog
+* Wed Apr 19 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.9-2
+- Move QML imports out of -devel subpackage
+  Resolves: bz#2175749
+
+* Tue Apr 18 2023 Jan Grulich <jgrulich@redhat.com> - 5.15.9-1
+- 5.15.9
+  Resolves: bz#2175749
+
 * Mon Mar 28 2022 Jan Grulich <jgrulich@redhat.com> - 5.15.3-1
 - 5.15.3
   Resolves: bz#2061374
